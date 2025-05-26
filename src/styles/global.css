@@ -9,6 +9,21 @@ body {
   margin: 0;
 }
 
-.btn {
-  @apply px-4 py-2 bg-[#eebbc3] text-[#232946] rounded-xl font-bold shadow hover:bg-[#ffb7c5] transition-all duration-200;
+/* Przyciski uniwersalne (Twoje oraz Snipcart) */
+.btn,
+.snipcart-button-primary {
+  @apply px-4 py-2 bg-[#eebbc3] text-[#232946] rounded-xl font-bold shadow-none transition-colors transition-shadow duration-300;
+}
+
+.btn:hover,
+.snipcart-button-primary:hover {
+  @apply bg-[#ffb7c5] shadow-lg;
+}
+
+/* Karty produktów */
+.kreaty-card {
+  @apply border border-[#eebbc3] rounded-2xl overflow-hidden shadow-lg transition-shadow transition-transform duration-300 bg-white;
+}
+.kreaty-card:hover {
+  @apply shadow-2xl scale-105;
 }

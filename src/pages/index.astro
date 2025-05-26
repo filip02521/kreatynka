@@ -6,8 +6,12 @@ import products from '../data/products.json';
   <section class="py-10 bg-[#232946] text-white">
     <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
       <div>
-        <h1 class="text-5xl font-bold mb-6 drop-shadow-xl">Wyjątkowe zestawy DIY – twórz, baw się, odkrywaj!</h1>
-        <p class="text-xl mb-8">Odkryj prawdziwą przyjemność z tworzenia — gotowe boxy na prezent lub kreatywne popołudnie!</p>
+        <h1 class="text-5xl font-bold mb-6 drop-shadow-xl">
+          Wyjątkowe zestawy DIY – twórz, baw się, odkrywaj!
+        </h1>
+        <p class="text-xl mb-8">
+          Odkryj prawdziwą przyjemność z tworzenia — gotowe boxy na prezent lub kreatywne popołudnie!
+        </p>
         <a href="#produkty" class="btn text-lg">Zobacz nasze zestawy</a>
       </div>
       <div class="relative w-full overflow-hidden rounded-2xl shadow-2xl">
@@ -33,7 +37,7 @@ import products from '../data/products.json';
     <h2 class="text-3xl font-semibold text-center mb-10 text-[#232946]">Nasze zestawy DIY</h2>
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
       {products.map(p => (
-        <div class="border border-[#eebbc3] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition bg-white">
+        <div class="kreaty-card">
           <img src={p.image} alt={p.title} class="w-full h-56 object-cover" />
           <div class="p-6">
             <h3 class="text-xl font-semibold mb-2 text-[#232946]">{p.title}</h3>
