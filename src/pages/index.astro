@@ -1,0 +1,72 @@
+
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import products from '../data/products.json';
+---
+<BaseLayout title="DIY-CENTER – Zestawy do tworzenia">
+  <section class="text-center py-12 bg-background">
+    <h1 class="text-4xl font-bold mb-4">Twórz coś wyjątkowego z DIY-CENTER</h1>
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+      Gotowe zestawy DIY, które dostarczą Ci nie tylko materiałów, ale też radości z tworzenia. Idealne na prezent lub kreatywne popołudnie.
+    </p>
+    <a href="#produkty" class="btn">Zobacz nasze zestawy</a>
+  </section>
+
+  <section id="produkty" class="p-8">
+    <h2 class="text-3xl font-semibold text-center mb-10">Nasze zestawy DIY</h2>
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {products.map(p => (
+        <div class="border rounded-lg overflow-hidden shadow-md bg-white">
+          <img src={p.image} alt={p.title} class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-1">{p.title}</h3>
+            <p class="text-sm text-gray-600 mb-3">{p.description}</p>
+            <p class="text-lg font-bold">{p.price} zł</p>
+            <button class="snipcart-add-item btn mt-4"
+              data-item-id={p.slug}
+              data-item-price={p.price}
+              data-item-url="/"
+              data-item-description={p.description}
+              data-item-image={p.image}
+              data-item-name={p.title}>
+              Dodaj do koszyka
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-primary text-white py-12">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl font-semibold mb-4">Dlaczego DIY-CENTER?</h2>
+      <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-4">
+        <div>
+          <p class="text-lg font-bold">✅ Eleganckie opakowanie</p>
+          <p class="text-sm">Zestawy zapakowane z dbałością o detale.</p>
+        </div>
+        <div>
+          <p class="text-lg font-bold">🔧 Kompletne materiały</p>
+          <p class="text-sm">Nie potrzebujesz niczego więcej – wszystko w pudełku.</p>
+        </div>
+        <div>
+          <p class="text-lg font-bold">📦 Ręczne kompletowanie</p>
+          <p class="text-sm">Każdy zestaw składany z pasją i precyzją.</p>
+        </div>
+        <div>
+          <p class="text-lg font-bold">🎁 Idealny na prezent</p>
+          <p class="text-sm">Zestawy DIY, które cieszą i inspirują.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-8 bg-background">
+    <h2 class="text-2xl font-semibold text-center mb-4">Dołącz do naszego newslettera</h2>
+    <p class="text-center text-gray-600 mb-6">Zapisz się, aby otrzymywać inspiracje i rabaty!</p>
+    <form class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-xl mx-auto">
+      <input type="email" placeholder="Twój email" class="p-3 border rounded w-full sm:w-auto flex-1" required />
+      <button type="submit" class="btn">Zapisz się</button>
+    </form>
+  </section>
+</BaseLayout>

@@ -1,0 +1,27 @@
+
+---
+import '../styles/global.css';
+const { title = 'DIY-CENTER' } = Astro.props;
+---
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <script async src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js"></script>
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
+  </head>
+  <body>
+    <header class="bg-primary text-white p-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold">DIY-CENTER</h1>
+      <button class="snipcart-checkout btn">Koszyk</button>
+    </header>
+    <main class="p-4">
+      <slot />
+    </main>
+    <footer class="text-center p-4 text-sm text-gray-500">
+      © {new Date().getFullYear()} DIY-CENTER
+    </footer>
+    <div hidden id="snipcart" data-api-key="M2JlYTYxOWYtY2I4ZS00MzE3LWI4MjMtNjE1YzEzYmM4Y2ZlNjM4ODM2MTM4NDA0MjY4NzM0"></div>
+  </body>
+</html>

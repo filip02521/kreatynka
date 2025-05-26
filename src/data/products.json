@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "bracelet",
+    "title": "Makramowa Bransoletka",
+    "price": 89,
+    "image": "https://images.pexels.com/photos/1335971/pexels-photo-1335971.jpeg?auto=compress&w=600&h=400&fit=crop",
+    "description": "Zestaw do stworzenia stylowej bransoletki DIY."
+  },
+  {
+    "slug": "sojowa-swieca",
+    "title": "Świeca Sojowa DIY",
+    "price": 75,
+    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+    "description": "Własnoręcznie wykonana świeca z naturalnych składników."
+  },
+  {
+    "slug": "makrama-na-sciane",
+    "title": "Makrama na ścianę",
+    "price": 99,
+    "image": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80",
+    "description": "Zestaw do plecenia dekoracyjnej makramy ściennej."
+  }
+]
