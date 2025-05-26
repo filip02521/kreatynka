@@ -1,0 +1,23 @@
+.snipcart {
+  --color-primary: #232946;
+  --color-secondary: #eebbc3;
+  --color-success: #eebbc3;
+  --color-default: #232946;
+  --font-family: 'Inter', 'Montserrat', system-ui, sans-serif;
+}
+
+.snipcart-button-primary {
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  background: #eebbc3 !important;
+  color: #232946 !important;
+  transition: background 0.2s;
+}
+.snipcart-button-primary:hover {
+  background: #ffb7c5 !important;
+}
+
+.snipcart__box {
+  border-radius: 18px !important;
+  box-shadow: 0 2px 18px #23294615;
+}

@@ -1,14 +1,14 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  font-family: system-ui, sans-serif;
-  background-color: #f5f5f5;
-  color: #2F4F4F;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #f4f6fb;
+  color: #232946;
   margin: 0;
 }
+
 .btn {
-  @apply px-4 py-2 bg-accent text-white rounded hover:opacity-90 transition;
+  @apply px-4 py-2 bg-[#eebbc3] text-[#232946] rounded-xl font-bold shadow hover:bg-[#ffb7c5] transition-all duration-200;
 }

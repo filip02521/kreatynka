@@ -1,26 +1,36 @@
-
 ---
 import '../styles/global.css';
-const { title = 'DIY-CENTER' } = Astro.props;
+const { title = 'Kreatynka' } = Astro.props;
 ---
+
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <script async src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js"></script>
     <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/snipcart-custom.css" />
   </head>
   <body>
-    <header class="bg-primary text-white p-4 flex justify-between items-center">
-      <h1 class="text-xl font-bold">DIY-CENTER</h1>
+    <header class="bg-[#232946] text-white p-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <img src="/logo.svg" alt="Kreatynka logo" class="h-10 w-10 rounded shadow-md" />
+        <div>
+          <span class="text-2xl font-extrabold tracking-wide">Kreatynka</span>
+          <div class="text-xs text-[#eebbc3]">Wszystko, co kreatywne, w jednej paczce</div>
+        </div>
+      </div>
       <button class="snipcart-checkout btn">Koszyk</button>
     </header>
-    <main class="p-4">
+    <main class="p-0">
       <slot />
     </main>
-    <footer class="text-center p-4 text-sm text-gray-500">
-      © {new Date().getFullYear()} DIY-CENTER
+    <footer class="text-center p-4 text-sm text-[#232946] bg-[#f4f6fb]">
+      Dziękujemy za zaufanie – staramy się zapewnić, aby Twój dzień był jeszcze lepszy!<br/>
+      &copy; {new Date().getFullYear()} Kreatynka
     </footer>
     <div hidden id="snipcart" data-api-key="M2JlYTYxOWYtY2I4ZS00MzE3LWI4MjMtNjE1YzEzYmM4Y2ZlNjM4ODM2MTM4NDA0MjY4NzM0"></div>
   </body>
