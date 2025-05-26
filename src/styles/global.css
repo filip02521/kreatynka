@@ -9,15 +9,23 @@ body {
   margin: 0;
 }
 
-/* Przyciski uniwersalne (Twoje oraz Snipcart) */
+/* Delikatne, eleganckie przyciski (Twoje i Snipcart) */
 .btn,
 .snipcart-button-primary {
-  @apply px-4 py-2 bg-[#eebbc3] text-[#232946] rounded-xl font-bold shadow-none transition-colors transition-shadow duration-300;
+  @apply px-5 py-2 rounded-lg font-medium border border-[#eebbc3] tracking-wide;
+  background-color: #eebbc3;
+  color: #232946;
+  box-shadow: none;
+  letter-spacing: 0.02em;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
 .btn:hover,
 .snipcart-button-primary:hover {
-  @apply bg-[#ffb7c5] shadow-lg;
+  background-color: #fff;
+  color: #232946;
+  border-color: #eebbc3;
+  box-shadow: 0 4px 20px #23294625;
 }
 
 /* Karty produktów */
