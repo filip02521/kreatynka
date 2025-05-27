@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@astrojs/tailwind": "^6.0.2",
+    "aos": "^2.3.4",
     "astro": "^5.8.0"
   }
 }

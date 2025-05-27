@@ -13,6 +13,8 @@ const { title = 'Kreatynka' } = Astro.props;
     <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/snipcart-custom.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
   </head>
   <body>
     <header class="bg-[#232946] text-white p-4 flex justify-between items-center">
@@ -33,5 +35,15 @@ const { title = 'Kreatynka' } = Astro.props;
       &copy; {new Date().getFullYear()} Kreatynka
     </footer>
     <div hidden id="snipcart" data-api-key="M2JlYTYxOWYtY2I4ZS00MzE3LWI4MjMtNjE1YzEzYmM4Y2ZlNjM4ODM2MTM4NDA0MjY4NzM0"></div>
+   <script src="/modal.js" is:inline></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" is:inline></script>
+<script is:inline>
+  AOS.init({
+    once: true, // animacje tylko raz na element
+    duration: 700, // ms, czas animacji
+    offset: 80, // px, od dołu okna
+  });
+</script>
+
   </body>
 </html>

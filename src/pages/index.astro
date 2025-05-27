@@ -1,24 +1,31 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import products from '../data/products.json';
 ---
+
 <BaseLayout title="Kreatynka – Zestawy do tworzenia">
-  <section class="py-10 bg-[#232946] text-white">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+  <section class="py-10 relative overflow-hidden bg-[#232946] text-white">
+    {/* Gradient tła */}
+    <div aria-hidden="true"
+      class="pointer-events-none absolute inset-0 z-0 before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-br before:from-[#eebbc3]/60 before:to-[#232946]/85 before:blur-2xl before:opacity-80"
+      style="filter: blur(0.5px);"
+    ></div>
+    <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center px-4">
       <div>
-        <h1 class="text-5xl font-bold mb-6 drop-shadow-xl">
+        <h1 class="text-4xl sm:text-5xl font-bold mb-6 drop-shadow-xl">
           Wyjątkowe zestawy DIY – twórz, baw się, odkrywaj!
         </h1>
-        <p class="text-xl mb-8">
+        <p class="text-lg sm:text-xl mb-8">
           Odkryj prawdziwą przyjemność z tworzenia — gotowe boxy na prezent lub kreatywne popołudnie!
         </p>
-        <a href="#produkty" class="btn text-lg">Zobacz nasze zestawy</a>
+        <a href="#produkty" class="btn text-base sm:text-lg py-3 px-8 font-semibold transition-all duration-200 shadow-md hover:shadow-xl hover:bg-[#eebbc3] hover:text-[#232946] rounded-xl w-full sm:w-auto">
+          Zobacz nasze zestawy
+        </a>
       </div>
-      <div class="relative w-full overflow-hidden rounded-2xl shadow-2xl">
+      <div class="relative w-full overflow-hidden rounded-2xl shadow-2xl mt-8 md:mt-0">
         <div class="flex gap-2 animate-scroll-gallery">
-          <img src="https://images.pexels.com/photos/1335971/pexels-photo-1335971.jpeg?auto=compress&w=500&h=350&fit=crop" class="rounded-xl shadow-lg w-64 h-44 object-cover" alt="Bransoletka DIY" />
-          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80" class="rounded-xl shadow-lg w-64 h-44 object-cover" alt="Świeca DIY" />
-          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=500&q=80" class="rounded-xl shadow-lg w-64 h-44 object-cover" alt="Makrama DIY" />
+          <img src="https://images.pexels.com/photos/1335971/pexels-photo-1335971.jpeg?auto=compress&w=500&h=350&fit=crop" class="rounded-xl shadow-lg w-64 h-44 object-cover" alt="Makramowa bransoletka z zestawu Kreatynka" />
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80" class="rounded-xl shadow-lg w-64 h-44 object-cover" alt="Ręcznie robiona świeca z boxa DIY Kreatynka" />
+          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=500&q=80" class="rounded-xl shadow-lg w-64 h-44 object-cover" alt="Makrama DIY Kreatynka" />
         </div>
       </div>
     </div>
@@ -33,86 +40,181 @@ import products from '../data/products.json';
     </style>
   </section>
 
-  <section id="produkty" class="p-12 bg-[#f4f6fb]">
-    <h2 class="text-3xl font-semibold text-center mb-10 text-[#232946]">Nasze zestawy DIY</h2>
-    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-      {products.map(p => (
-        <div class="kreaty-card">
-          <img src={p.image} alt={p.title} class="w-full h-56 object-cover" />
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-2 text-[#232946]">{p.title}</h3>
-            <p class="text-sm text-gray-600 mb-4">{p.description}</p>
-            <p class="text-xl font-bold mb-4 text-[#232946]">{p.price} zł</p>
-            <button class="snipcart-add-item btn w-full"
+  <section id="produkty" class="p-6 sm:p-12 bg-[#f4f6fb]" data-aos="fade-up">
+  <h2 class="text-3xl font-semibold text-center mb-10 text-[#232946]">Nasze zestawy DIY</h2>
+  <div class="grid gap-8 sm:gap-10 sm:grid-cols-2 lg:grid-cols-3">
+    {[
+      {
+        title: "Makramowa bransoletka",
+        description: "Zestaw startowy do wykonania własnej bransoletki makramowej.",
+        image: "https://images.pexels.com/photos/1335971/pexels-photo-1335971.jpeg?auto=compress&w=500&h=350&fit=crop",
+        alt: "Makramowa bransoletka Kreatynka",
+        price: "54.99",
+        slug: "makramowa-bransoletka",
+        details: "Komplet zawiera sznurek, zapięcie, ozdobne koraliki oraz szczegółową instrukcję krok po kroku. Poziom trudności: łatwy.",
+      },
+      {
+        title: "Świeca sojowa DIY",
+        description: "Stwórz własną aromatyczną świecę – kreatywny zestaw dla każdego.",
+        image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80",
+        alt: "Ręcznie robiona świeca Kreatynka",
+        price: "44.99",
+        slug: "swieca-sojowa-diy",
+        details: "Zestaw zawiera wosk sojowy, knot, szklany pojemnik, instrukcję i dodatki zapachowe. Poziom trudności: średni.",
+      },
+      {
+        title: "Makrama na ścianę",
+        description: "Kompletny zestaw do makramy dekoracyjnej do Twojego wnętrza.",
+        image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=500&q=80",
+        alt: "Makrama ścienna Kreatynka",
+        price: "79.99",
+        slug: "makrama-na-sciane",
+        details: "W zestawie znajdziesz sznurek, drewniany drążek, instrukcję. Poziom trudności: średni.",
+      }
+    ].map((p, i) => (
+      <div
+        class="group bg-white border border-[#eebbc3] rounded-2xl shadow-lg flex flex-col hover:-translate-y-1 hover:shadow-2xl transition-all duration-300"
+        key={i}
+        itemScope itemType="https://schema.org/Product"
+      >
+        <img
+          src={p.image}
+          alt={p.alt}
+          loading="lazy"
+          class="w-full h-56 object-cover rounded-t-2xl"
+          itemProp="image"
+        />
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-xl font-semibold mb-2 text-[#232946]" itemProp="name">{p.title}</h3>
+          <p class="text-sm text-gray-600 mb-3" itemProp="description">{p.description}</p>
+          <div class="mt-auto">
+            <span class="block text-xl font-bold text-[#232946] mb-4" itemProp="offers" itemScope itemType="https://schema.org/Offer">
+              <span itemProp="price">{p.price}</span> zł
+              <meta itemProp="priceCurrency" content="PLN" />
+            </span>
+            <button
+              type="button"
+              class="btn w-full py-3 text-base font-semibold transition-all duration-200 rounded-xl bg-[#eebbc3] text-[#232946] shadow hover:bg-[#f1e3e4] hover:text-[#232946]"
+              onClick={`document.getElementById('modal-${i}').showModal();`}
+              aria-label={`Zobacz szczegóły produktu ${p.title}`}
+            >
+              Szczegóły
+            </button>
+          </div>
+        </div>
+        <dialog id={`modal-${i}`} class="rounded-2xl shadow-2xl max-w-md w-[94vw] sm:w-[420px] border-none bg-[#f4f6fb] p-0 open:flex open:flex-col open:items-stretch open:justify-between z-50">
+          <form method="dialog" class="absolute right-3 top-3 z-10">
+            <button type="submit" aria-label="Zamknij szczegóły" class="text-[#232946] text-2xl font-bold hover:text-[#eebbc3] transition-all">&times;</button>
+          </form>
+          <img src={p.image} alt={p.alt} class="w-full h-44 object-cover rounded-t-2xl" />
+          <div class="p-6 flex flex-col">
+            <h3 class="text-xl font-semibold mb-1 text-[#232946]">{p.title}</h3>
+            <div class="text-base text-[#232946] mb-3">{p.details}</div>
+            <span class="block text-xl font-bold text-[#232946] mb-4">{p.price} zł</span>
+            <button
+              class="snipcart-add-item btn w-full py-3 text-base font-semibold rounded-xl bg-[#232946] text-[#eebbc3] shadow hover:bg-[#eebbc3] hover:text-[#232946] transition-all"
               data-item-id={p.slug}
               data-item-price={p.price}
               data-item-url="/"
               data-item-description={p.description}
               data-item-image={p.image}
-              data-item-name={p.title}>
+              data-item-name={p.title}
+            >
               Dodaj do koszyka
             </button>
           </div>
-        </div>
-      ))}
-    </div>
-  </section>
-
-<section class="bg-[#232946] text-white py-16">
-  <div class="max-w-4xl mx-auto text-center px-6">
-    <h2 class="text-3xl font-bold mb-10 tracking-wide">Dlaczego <span class="text-[#eebbc3]">Kreatynka?</span></h2>
-    <div class="grid gap-10 md:grid-cols-2">
-      <!-- PREZENT/BOX -->
-      <div class="flex flex-col items-center">
-        <svg class="mb-3" width="40" height="40" viewBox="0 0 64 64" fill="none">
-          <rect x="8" y="20" width="48" height="28" rx="6" fill="#eebbc3" stroke="#232946" stroke-width="3"/>
-          <rect x="10" y="14" width="44" height="14" rx="4" fill="#fff" stroke="#232946" stroke-width="2"/>
-          <polyline points="8,20 32,36 56,20" fill="#fff" stroke="#232946" stroke-width="2"/>
-        </svg>
-        <p class="text-lg font-semibold mb-1">Elegancko zapakowane</p>
-        <p class="text-base text-gray-200">Każdy zestaw to mały prezent – starannie i pięknie zapakowany.</p>
+        </dialog>
       </div>
-      <!-- ZESTAW MATERIAŁÓW -->
-      <div class="flex flex-col items-center">
-        <svg class="mb-3" width="40" height="40" viewBox="0 0 64 64" fill="none">
-          <rect x="16" y="20" width="32" height="24" rx="4" fill="#eebbc3" stroke="#232946" stroke-width="3"/>
-          <circle cx="32" cy="32" r="4" fill="#232946"/>
-          <rect x="22" y="36" width="20" height="4" rx="2" fill="#fff" stroke="#232946" stroke-width="1.5"/>
-          <rect x="22" y="24" width="20" height="4" rx="2" fill="#fff" stroke="#232946" stroke-width="1.5"/>
-        </svg>
-        <p class="text-lg font-semibold mb-1">Wszystko w jednym miejscu</p>
-        <p class="text-base text-gray-200">Otwierasz box i tworzysz – komplet materiałów, żadnego biegania po sklepach.</p>
-      </div>
-      <!-- SERCE / RĘKA -->
-      <div class="flex flex-col items-center">
-        <svg class="mb-3" width="40" height="40" viewBox="0 0 64 64" fill="none">
-          <path d="M32 48s10-8 10-16a6 6 0 0 0-12 0 6 6 0 0 0-12 0c0 8 10 16 10 16Z" fill="#eebbc3" stroke="#232946" stroke-width="2"/>
-        </svg>
-        <p class="text-lg font-semibold mb-1">Tworzone z sercem</p>
-        <p class="text-base text-gray-200">Każdy box kompletujemy ręcznie – tak, jakby był dla bliskiej osoby.</p>
-      </div>
-      <!-- GWIAZDKA / INSPIRACJA -->
-      <div class="flex flex-col items-center">
-        <svg class="mb-3" width="40" height="40" viewBox="0 0 64 64" fill="none">
-          <polygon points="32,16 36,28 48,28 38,36 42,48 32,40 22,48 26,36 16,28 28,28" fill="#eebbc3" stroke="#232946" stroke-width="2"/>
-        </svg>
-        <p class="text-lg font-semibold mb-1">Radość i inspiracja</p>
-        <p class="text-base text-gray-200">Każdy zestaw to chwila kreatywnej przyjemności – dla Ciebie lub na prezent.</p>
-      </div>
-    </div>
+    ))}
   </div>
+  <script>
+    // Przechwytuj klik poza dialogiem by zamknąć modal na klik poza oknem (Astro nie dodaje tego domyślnie)
+    document.querySelectorAll("dialog").forEach(dlg => {
+      dlg.addEventListener("click", function(e) {
+        const rect = dlg.getBoundingClientRect();
+        if (
+          e.clientY < rect.top ||
+          e.clientY > rect.bottom ||
+          e.clientX < rect.left ||
+          e.clientX > rect.right
+        ) dlg.close();
+      });
+    });
+  </script>
 </section>
 
 
+  <!-- Dlaczego Kreatynka? -->
+  <section class="bg-[#232946] text-white py-16" data-aos="fade-in">
+    <div class="max-w-4xl mx-auto text-center px-6">
+      <h2 class="text-3xl font-bold mb-10 tracking-wide">Dlaczego <span class="text-[#eebbc3]">Kreatynka?</span></h2>
+      <div class="grid gap-10 md:grid-cols-2">
+        <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="50">
+          {/* Prezent / box */}
+          <svg class="mb-3" width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <rect x="6" y="18" width="36" height="20" rx="4" fill="#fff" stroke="#eebbc3" stroke-width="2"/>
+            <rect x="8" y="12" width="32" height="10" rx="3" fill="#eebbc3" stroke="#232946" stroke-width="2"/>
+            <path d="M24 22V32" stroke="#232946" stroke-width="2" stroke-linecap="round"/>
+            <rect x="18" y="18" width="12" height="6" rx="2" fill="#fff" stroke="#eebbc3" stroke-width="1.5"/>
+            <polyline points="6,18 24,29 42,18" fill="none" stroke="#232946" stroke-width="2"/>
+          </svg>
+          <p class="text-lg font-semibold mb-1">Elegancko zapakowane</p>
+          <p class="text-base text-gray-200">Każdy zestaw to mały prezent – starannie i pięknie zapakowany.</p>
+        </div>
+        <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">
+          {/* Materiały DIY / narzędzia */}
+          <svg class="mb-3" width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <rect x="14" y="18" width="20" height="16" rx="3" fill="#fff" stroke="#eebbc3" stroke-width="2"/>
+            <circle cx="24" cy="26" r="3" stroke="#232946" stroke-width="2" fill="#fff"/>
+            <rect x="16" y="24" width="16" height="4" rx="2" fill="#eebbc3" stroke="#232946" stroke-width="1.5"/>
+            <rect x="16" y="20" width="16" height="2" rx="1" fill="#eebbc3" stroke="#232946" stroke-width="1.5"/>
+          </svg>
+          <p class="text-lg font-semibold mb-1">Wszystko w jednym miejscu</p>
+          <p class="text-base text-gray-200">Otwierasz box i tworzysz – komplet materiałów, żadnego biegania po sklepach.</p>
+        </div>
+        <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="150">
+          {/* Serce / handmade */}
+          <svg class="mb-3" width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <path d="M24 40s10-8 10-16a6 6 0 0 0-12 0 6 6 0 0 0-12 0c0 8 10 16 10 16Z" fill="#fff" stroke="#eebbc3" stroke-width="2"/>
+            <path d="M24 32c-4-3-8-6-8-10a4 4 0 0 1 8 0 4 4 0 0 1 8 0c0 4-4 7-8 10Z" fill="#eebbc3" stroke="#232946" stroke-width="1.5"/>
+          </svg>
+          <p class="text-lg font-semibold mb-1">Tworzone z sercem</p>
+          <p class="text-base text-gray-200">Każdy box kompletujemy ręcznie – tak, jakby był dla bliskiej osoby.</p>
+        </div>
+        <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
+          {/* Gwiazdka / inspiracja */}
+          <svg class="mb-3" width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <polygon points="24,8 28,20 40,20 30,28 34,40 24,32 14,40 18,28 8,20 20,20" fill="#fff" stroke="#eebbc3" stroke-width="2"/>
+            <polygon points="24,14 27,22 35,22 28,27 31,35 24,30 17,35 20,27 13,22 21,22" fill="#eebbc3" stroke="#232946" stroke-width="1.5"/>
+          </svg>
+          <p class="text-lg font-semibold mb-1">Radość i inspiracja</p>
+          <p class="text-base text-gray-200">Każdy zestaw to chwila kreatywnej przyjemności – dla Ciebie lub na prezent.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-
-
-  <section class="p-12 bg-[#f4f6fb]">
+  <!-- Newsletter -->
+  <section class="p-6 sm:p-12 bg-[#f4f6fb]" data-aos="fade-up">
     <h2 class="text-2xl font-semibold text-center mb-4 text-[#232946]">Dołącz do naszego newslettera</h2>
     <p class="text-center text-gray-600 mb-6">Zapisz się, aby otrzymywać inspiracje, rabaty i nowości!</p>
     <form class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-xl mx-auto">
-      <input type="email" placeholder="Twój email" class="p-3 border rounded-xl w-full sm:w-auto flex-1" required />
-      <button type="submit" class="btn">Zapisz się</button>
+      <div class="relative w-full sm:w-auto flex-1">
+        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-[#232946] opacity-70">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 0 0 2.22 0L21 8M5 19h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z" />
+          </svg>
+        </span>
+        <input
+          type="email"
+          placeholder="Twój email"
+          class="p-3 pl-10 border rounded-xl w-full text-base sm:text-lg py-3"
+          required
+        />
+      </div>
+      <button type="submit" class="btn py-3 px-8 text-base font-semibold rounded-xl bg-[#eebbc3] text-[#232946] shadow hover:bg-[#f1e3e4] transition-all duration-200 w-full sm:w-auto">
+        Zapisz się
+      </button>
     </form>
   </section>
 </BaseLayout>

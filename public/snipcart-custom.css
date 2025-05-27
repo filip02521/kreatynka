@@ -1,14 +1,14 @@
-/* Możesz zostawić pusty, jeśli wszystko masz w global.css */
-
-.snipcart {
-  --color-primary: #232946;
-  --color-secondary: #eebbc3;
-  --color-success: #eebbc3;
-  --color-default: #232946;
-  --font-family: 'Inter', 'Montserrat', system-ui, sans-serif;
+.snipcart-button-primary,
+.snipcart-cart__footer-checkout {
+  background: var(--snipcart-button) !important;
+  color: var(--snipcart-button-text) !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  transition: background 0.2s;
+  box-shadow: 0 2px 12px 0 #eebbc377;
 }
-
-.snipcart__box {
-  border-radius: 18px !important;
-  box-shadow: 0 2px 18px #23294615;
+.snipcart-button-primary:hover,
+.snipcart-cart__footer-checkout:hover {
+  background: #f1e3e4 !important;
+  color: #232946 !important;
 }
