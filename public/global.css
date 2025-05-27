@@ -9,7 +9,6 @@ body {
   margin: 0;
 }
 
-/* Delikatne, eleganckie przyciski (Twoje i Snipcart) */
 .btn,
 .snipcart-button-primary {
   @apply px-5 py-2 rounded-lg font-medium border border-[#eebbc3] tracking-wide;
@@ -34,4 +33,17 @@ body {
 }
 .kreaty-card:hover {
   @apply shadow-2xl scale-105;
+}
+
+/* Przyciemnienie tła pod dialogiem (modalem szczegółów) */
+dialog[open]::backdrop {
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(2px);
+}
+
+/* Zwiększenie wielkości przycisków na mobile dla lepszego UX */
+@media (max-width: 640px) {
+  .btn {
+    @apply py-3 px-8 text-lg;
+  }
 }
